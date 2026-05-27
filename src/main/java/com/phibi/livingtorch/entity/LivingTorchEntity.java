@@ -3,6 +3,7 @@ package com.phibi.livingtorch.entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.world.World;
 import com.phibi.livingtorch.util.NutritionManager;
@@ -18,6 +19,8 @@ public class LivingTorchEntity extends MobEntity {
 
     public LivingTorchEntity(EntityType<? extends LivingTorchEntity> entityType, World world) {
         super(entityType, world);
+        this.getAttributes().getTracked(EntityAttributes.GENERIC_MAX_HEALTH).setBaseValue(6.0);
+        this.setHealth(6.0f);
     }
 
     @Override
@@ -143,6 +146,14 @@ public class LivingTorchEntity extends MobEntity {
                 entity.setOnFireFor(2);
             }
         });
+    }
+
+    @Override
+    protected void dropLoot(DamageSource source, boolean causedByPlayer) {
+        // Drop charbon de bois x2
+        this.dropItem(ModItems.CHARCOAL_WOOD, 2);
+        // Drop stick x1
+        this.dropItem(Items.STICK, 1);
     }
 
     @Override

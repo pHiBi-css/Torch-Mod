@@ -9,6 +9,8 @@ public class NutritionManager {
     private static final int COAL_VALUE = 25;
     private static final int CHARCOAL_VALUE = 25;
     private static final int LAVA_BUCKET_VALUE = 50;
+    private static final int CUSTOM_CHARCOAL_VALUE = 100; // 2x plus qu'un seau de lave
+    private static final int CHARCOAL_WOOD_VALUE = 50; // Équivalent seau de lave
     private static final int WOOD_VALUE = 10;
 
     public void feed(String itemName) {
@@ -16,7 +18,13 @@ public class NutritionManager {
         switch (itemName.toLowerCase()) {
             case "coal":
             case "charcoal":
-                value = COAL_VALUE;
+                value = CHARCOAL_VALUE;
+                break;
+            case "custom_charcoal":
+                value = CUSTOM_CHARCOAL_VALUE;
+                break;
+            case "charcoal_wood":
+                value = CHARCOAL_WOOD_VALUE;
                 break;
             case "lava_bucket":
                 value = LAVA_BUCKET_VALUE;
