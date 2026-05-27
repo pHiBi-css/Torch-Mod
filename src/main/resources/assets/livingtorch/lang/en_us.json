@@ -1,0 +1,18 @@
+{
+  "en_us": {
+    "entity.livingtorch.living_torch": "Living Torch",
+    "entity.livingtorch.torch_boss": "Torch Boss",
+    "entity.livingtorch.inferno_torch_boss": "Inferno Torch Boss",
+    "item.livingtorch.custom_charcoal": "Custom Charcoal",
+    "item.livingtorch.charcoal_wood": "Charcoal Wood",
+    "item.livingtorch.living_torch": "Living Torch Item"
+  },
+  "fr_fr": {
+    "entity.livingtorch.living_torch": "Torche Vivante",
+    "entity.livingtorch.torch_boss": "Boss Torche",
+    "entity.livingtorch.inferno_torch_boss": "Boss Torche Infernale",
+    "item.livingtorch.custom_charcoal": "Charbon Personnalisé",
+    "item.livingtorch.charcoal_wood": "Charbon de Bois",
+    "item.livingtorch.living_torch": "Item Torche Vivante"
+  }
+}
