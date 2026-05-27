@@ -1,8 +1,8 @@
 package com.phibi.livingtorch.items;
 
-import net.minecraft.item.Item;
 import net.minecraft.item.TorchItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResultOnUse;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.entity.LightningEntity;
@@ -25,22 +25,22 @@ public class SoulTorchItem extends TorchItem {
         if (!world.isClient) {
             if (random == 0) {
                 // 1% : Inferno Torch Boss + tempête d'éclairs
-                InfernoTorchBossEntity infernoBoss = new InfernoTorchBossEntity(LivingTorchMod.INFERNO_TORCH_BOSS, world);
-                infernoBoss.setPosition(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
-                world.spawnEntity(infernoBoss);
+                InfernoTorchBossEntity boss = new InfernoTorchBossEntity(LivingTorchMod.INFERNO_TORCH_BOSS, world);
+                boss.setPosition(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+                world.spawnEntity(boss);
 
                 // Tempête d'éclairs (5 éclairs)
                 for (int i = 0; i < 5; i++) {
                     world.addLightning(new LightningEntity(
                         world,
                         pos.getX() + 0.5 + (world.random.nextDouble() - 0.5) * 3,
-                        pos.getY() + 2.5,
+                        pos.getY() + 2,
                         pos.getZ() + 0.5 + (world.random.nextDouble() - 0.5) * 3,
                         false
                     ));
                 }
                 return ActionResultOnUse.SUCCESS;
-            } else if (random < 11) {
+            } else if (random <= 10) {
                 // 10% : Torch Boss + 3 éclairs
                 TorchBossEntity boss = new TorchBossEntity(LivingTorchMod.TORCH_BOSS, world);
                 boss.setPosition(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
@@ -56,7 +56,7 @@ public class SoulTorchItem extends TorchItem {
                     ));
                 }
                 return ActionResultOnUse.SUCCESS;
-            } else if (random < 21) {
+            } else if (random <= 20) {
                 // 10% : Torche vivante + éclair
                 LivingTorchEntity torch = new LivingTorchEntity(LivingTorchMod.LIVING_TORCH, world);
                 torch.setPosition(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
