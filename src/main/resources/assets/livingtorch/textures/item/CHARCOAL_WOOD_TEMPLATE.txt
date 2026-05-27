@@ -1,0 +1,8 @@
+```
+Charcoal Wood Item Texture (16x16)
+Brown-gray color
+Use image editor to create:
+- Base: #4a4a3a (brown-gray)
+- Highlight: #8b7355 (saddle brown)
+- Pattern: Wood grain pattern
+```

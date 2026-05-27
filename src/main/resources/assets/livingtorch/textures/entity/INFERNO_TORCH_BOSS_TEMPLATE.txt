@@ -1,0 +1,9 @@
+```
+Inferno Torch Boss Texture (64x64)
+Top view entity texture
+Colors:
+- Head: Red (#FF4444) with black outlines
+- Body: Dark orange (#FF8C00) with red stripes
+- Base: Black (#1a1a1a) with fire effects
+- Eyes: Yellow (#FFFF00)
+```
