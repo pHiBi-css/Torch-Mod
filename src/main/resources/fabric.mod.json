@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "livingtorch",
+  "version": "1.0.0",
+  "name": "Living Torch Mod",
+  "description": "Une torche vivante qui vous suit, a besoin de nourriture et change d'état.",
+  "authors": [
+    "pHiBi-css"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.phibi.livingtorch.LivingTorchMod"
+    ]
+  },
+  "mixins": [],
+  "depends": {
+    "fabricloader": ">=0.14.0",
+    "fabric-api": "*",
+    "minecraft": "~1.20"
+  }
+}
