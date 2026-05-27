@@ -3,15 +3,12 @@ package com.phibi.livingtorch.items;
 import net.minecraft.item.Item;
 import net.minecraft.item.TorchItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.lighting.LightingProvider;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.LightningEntity;
 import com.phibi.livingtorch.entity.LivingTorchEntity;
 import com.phibi.livingtorch.entity.TorchBossEntity;
+import com.phibi.livingtorch.entity.InfernoTorchBossEntity;
 import com.phibi.livingtorch.LivingTorchMod;
 
 public class SoulTorchItem extends TorchItem {
@@ -23,16 +20,32 @@ public class SoulTorchItem extends TorchItem {
     public ActionResultOnUse useOnBlock(ItemUsageContext context) {
         World world = context.getWorld();
         BlockPos pos = context.getBlockPos().up();
-        int random = world.random.nextInt(10);
+        int random = world.random.nextInt(100);
 
         if (!world.isClient) {
             if (random == 0) {
+                // 1% : Inferno Torch Boss + tempête d'éclairs
+                InfernoTorchBossEntity infernoBoss = new InfernoTorchBossEntity(LivingTorchMod.INFERNO_TORCH_BOSS, world);
+                infernoBoss.setPosition(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+                world.spawnEntity(infernoBoss);
+
+                // Tempête d'éclairs (5 éclairs)
+                for (int i = 0; i < 5; i++) {
+                    world.addLightning(new LightningEntity(
+                        world,
+                        pos.getX() + 0.5 + (world.random.nextDouble() - 0.5) * 3,
+                        pos.getY() + 2.5,
+                        pos.getZ() + 0.5 + (world.random.nextDouble() - 0.5) * 3,
+                        false
+                    ));
+                }
+                return ActionResultOnUse.SUCCESS;
+            } else if (random < 11) {
                 // 10% : Torch Boss + 3 éclairs
                 TorchBossEntity boss = new TorchBossEntity(LivingTorchMod.TORCH_BOSS, world);
                 boss.setPosition(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
                 world.spawnEntity(boss);
 
-                // 3 éclairs massifs
                 for (int i = 0; i < 3; i++) {
                     world.addLightning(new LightningEntity(
                         world,
@@ -43,7 +56,7 @@ public class SoulTorchItem extends TorchItem {
                     ));
                 }
                 return ActionResultOnUse.SUCCESS;
-            } else if (random == 1 || random == 2) {
+            } else if (random < 21) {
                 // 10% : Torche vivante + éclair
                 LivingTorchEntity torch = new LivingTorchEntity(LivingTorchMod.LIVING_TORCH, world);
                 torch.setPosition(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
