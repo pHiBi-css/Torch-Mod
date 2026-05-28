@@ -1,0 +1,8 @@
+```
+Charcoal Custom Item Texture (16x16)
+Dark with golden highlights
+Use image editor to create:
+- Base: #1a1a1a (dark gray-black)
+- Highlight: #FFD700 (gold)
+- Pattern: Diagonal stripes
+```
