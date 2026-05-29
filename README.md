@@ -1,4 +1,4 @@
-# 🔥 Living Torch Mod - Documentation Complète
+# 🔥 Living Torch Mod - Documentation Complète (mod en version beta)
 
 ## 📖 Table des Matières
 1. [Vue d'ensemble](#-vue-densemble)
