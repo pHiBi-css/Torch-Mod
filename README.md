@@ -1,5 +1,5 @@
 # 🔥 Living Torch Mod - Documentation Complète (mod en version beta)
-(non testé)
+(non testé)(et pas de textures)
 ## 📖 Table des Matières
 1. [Vue d'ensemble](#-vue-densemble)
 2. [Entités](#-entités)
